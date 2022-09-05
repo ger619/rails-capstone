@@ -12,8 +12,29 @@
   </head>
 
   <body class="container">
+
+
   <% if current_user %>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Bank Capstone</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%= link_to "Home", users_path, class: 'nav-link'  %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Groups", group_index_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item text-right">
+            <%= link_to "Sign Out", destroy_user_session_path, class: "nav-link", method: :delete, data: { turbo_method: :delete } %>
+          </li>
+        </ul>
+      </div>
+    </nav>
   <% end %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
