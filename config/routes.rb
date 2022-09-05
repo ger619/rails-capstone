@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   root "users#index"
 
   resources :users, only: [:index, :show]
+  resources :group
+  resources :entity
 
-  resources :group , only: [:index, :show, :new, :create, :edit, :update] do
-    resources :message, only: [:index, :create]
-  end
 
 end

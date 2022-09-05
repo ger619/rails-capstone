@@ -87,4 +87,4 @@ production:
   <<: *default
   database: rails_capstone_production
   username: rails_capstone
-  password: <%= ENV["RAILS_CAPSTONE_DATABASE_PASSWORD"] %>
+  password: 1234

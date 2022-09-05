@@ -29,6 +29,9 @@
           <li class="nav-item">
             <%= link_to "Groups", group_index_path, class: 'nav-link' %>
           </li>
+          <li class="nav-item">
+            <%= link_to "Entities", entity_index_path, class: 'nav-link' %>
+          </li>
           <li class="nav-item text-right">
             <%= link_to "Sign Out", destroy_user_session_path, class: "nav-link", method: :delete, data: { turbo_method: :delete } %>
           </li>
