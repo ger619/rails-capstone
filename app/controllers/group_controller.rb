@@ -16,7 +16,6 @@ class GroupController < ApplicationController
     @group = @entity.Group.new(group_params)
     @group.user = current_user
 
-
     respond_to do |format|
       if @group.save
         format.html { redirect_to group_index_url(@group), notice: 'Group was successfully created.' }
