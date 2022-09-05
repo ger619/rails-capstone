@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root "users#index"
 
   resources :users, only: [:index, :show]
-  resources :group
+  resources :group, only: [:index, :show, :new, :create, :destroy]
   resources :entity
 
 

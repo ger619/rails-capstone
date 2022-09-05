@@ -12,12 +12,14 @@ class GroupController < ApplicationController
   end
 
   def create
-    @group = Group.new(group_params)
+    @entity = Entity.find(params[:entity_id])
+    @group = @entity.Group.new(group_params)
     @group.user = current_user
+
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to group_index_url, notice: 'Group was successfully created.' }
+        format.html { redirect_to group_index_url(@group), notice: 'Group was successfully created.' }
       else
         format.html { redirect_to group_index_url, notice: 'Failure' }
       end
@@ -27,6 +29,6 @@ class GroupController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:name, :icon, :user_id, :entity_id)
+    params.require(:group).permit(:name, :icon, :user_id)
   end
 end

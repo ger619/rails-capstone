@@ -13,11 +13,11 @@ class EntityController < ApplicationController
 
   def create
     @entity = Entity.new(entity_params)
-    @entity = current_user.entities.build(entity_params)
+    @entity.user = current_user
 
     respond_to do |format|
       if @entity.save
-        format.html { redirect_to entity_path(@entity), notice: 'Entity was successfully created.' }
+        format.html { redirect_to entity_url(@entity), notice: 'Entity was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -27,6 +27,6 @@ class EntityController < ApplicationController
   private
 
   def entity_params
-    params.require(:entity).permit(:name, :description, :user_id)
+    params.require(:entity).permit(:name, :amount, :user_id)
   end
 end
