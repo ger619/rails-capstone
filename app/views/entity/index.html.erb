@@ -8,13 +8,14 @@
 <div class="container d-flex justify-content-center">
   <div class="card mb-2" style="max-width: 540px;">
     <div class="row no-gutters">
-      <div class="col-md-8">
+      <div>
         <div class="card-body">
           <h5 class="card-title"> <%= entity.name %></h5>
           <p class="card-text"> <%= entity.amount %></p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          <%= button_to 'Delete', group_entity_path(@group, entity), method: :delete, data: { confirm: 'Are you sure?' } %>
-
+          <p class="card-text"><small class="text-muted">Created at <%= entity.created_at %>></small></p>
+          <% if cannot? :delete, entity %>
+          <%= button_to 'Delete', group_entity_path(@group, entity), class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
         </div>
       </div>
     </div>

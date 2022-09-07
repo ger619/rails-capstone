@@ -1,6 +1,8 @@
 class GroupController < ApplicationController
+  load_and_authorize_resource
+
   def index
-    @group = Group.all
+    @group = Group.includes(icon_attachment: :blob).all
     @entity = Entity.all
   end
 
@@ -8,7 +10,6 @@ class GroupController < ApplicationController
     @group = Group.find(params[:id])
     @group.user = current_user
     @entity = Entity.find(params[:id])
-    # @group = Group.joins(:entities).where('entities.group_id = ?', params[:id]).pluck(:name, :amount)
   end
 
   def new

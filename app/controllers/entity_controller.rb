@@ -1,7 +1,9 @@
 class EntityController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @entity = Entity.all.order('created_at DESC')
-    @group = Group.all.order('created_at DESC')
+    @group = Group.includes(:entities).all.order('created_at DESC')
   end
 
   def show
@@ -36,6 +38,6 @@ class EntityController < ApplicationController
   private
 
   def entity_params
-    params.require(:entity).permit(:name, :amount, :user_id)
+    params.require(:entity).permit(:name, :amount, :user_id, :group_id)
   end
 end
