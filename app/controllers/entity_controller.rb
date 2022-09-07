@@ -1,5 +1,6 @@
 class EntityController < ApplicationController
   def index
+    @group = Group.find(params[:group_id])
     @entity = Entity.all
   end
 
@@ -8,7 +9,8 @@ class EntityController < ApplicationController
   end
 
   def new
-    @entity = Entity.new
+    @group = Group.find(params[:group_id])
+    @entity = @group.Entity.new
   end
 
   def create
