@@ -14,4 +14,3 @@ RSpec.describe Entity, type: :model do
     expect(subject).to_not be_valid
   end
 end
-

@@ -1,16 +1,13 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
   def initialize(user)
+    cannot :read, :all
+    return unless user.present?
 
-      cannot :read, :all
-      return unless user.present?
-
-      can :read, [Group, Entity]
-      can :create, :all, user_id: user.id
-      can :destroy, :all, user_id: user.id
+    can :read, [Group, Entity]
+    can :create, :all, user_id: user.id
+    can :destroy, :all, user_id: user.id
 
     # Define abilities for the user here. For example:
     #
@@ -36,6 +33,5 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
-
   end
 end

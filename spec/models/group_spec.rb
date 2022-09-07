@@ -5,7 +5,6 @@ RSpec.describe Group, type: :model do
   before { subject.save }
   after { Group.destroy_all }
 
-
   it 'is valid with valid attributes' do
     subject.name = nil
     expect(subject).to_not be_valid
@@ -14,5 +13,4 @@ RSpec.describe Group, type: :model do
     subject.icon = nil
     expect(subject).to_not be_valid
   end
-
 end
