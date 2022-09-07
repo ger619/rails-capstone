@@ -4,6 +4,7 @@ class Group < ApplicationRecord
 
   has_one_attached :icon
   belongs_to :user, class_name: 'User', optional: true
+  has_many :entities, foreign_key: :group_id, class_name: 'Entity', dependent: :destroy
 
   def recent_groups; end
 end

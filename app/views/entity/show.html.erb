@@ -1,3 +1,6 @@
 
 
-<% @entity.name %>
+<% @entity.each do |entity| %>
+  <%= entity.name %>
+  <%= link_to 'Delete', group_entity_path(@group, entity), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
