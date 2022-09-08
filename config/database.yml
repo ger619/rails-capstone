@@ -24,13 +24,11 @@ default: &default
 development:
   <<: *default
   database: rails_capstone_development
-  username: postgres
-  password: 1234
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
-  # the same name as the operating system users running Rails.
+  # the same name as the operating system user running Rails.
   #username: rails_capstone
 
   # The password associated with the postgres role (username).
@@ -45,7 +43,7 @@ development:
   # If your server runs on a different port number, change accordingly.
   #port: 5432
 
-  # Schema search path. The server defaults to $users,public
+  # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
 
   # Minimum log levels, in increasing order:
@@ -60,8 +58,6 @@ development:
 test:
   <<: *default
   database: rails_capstone_test
-  username: postgres
-  password: 1234
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -87,4 +83,4 @@ production:
   <<: *default
   database: rails_capstone_production
   username: rails_capstone
-  password: 1234
+  password: <%= ENV["RAILS_CAPSTONE_DATABASE_PASSWORD"] %>
