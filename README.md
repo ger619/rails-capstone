@@ -8,7 +8,8 @@
 ``
 https://tomb-stone.herokuapp.com/users/sign_in
 ``
-
+## Video link
+- [Video link](https://www.loom.com/share/b786922897504003a619b472231da6c9)
 ## ERD
 ![image](https://github.com/microverseinc/curriculum-rails/blob/main/recipe-app/images/recipe_erd.png)
 
