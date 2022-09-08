@@ -83,6 +83,10 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/ger619/rails-capstone/issues).
 
+## Design
+
+Original design idea by [Gregoire Vella](https://www.behance.net/gregoirevella) on Behance.
+The Creative Commons license of the design requires that you give appropriate credit to the author. 
 ## Show your support
 
 Give a ⭐️ if you like this project!
