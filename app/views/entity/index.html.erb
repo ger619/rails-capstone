@@ -13,9 +13,10 @@
           <h5 class="card-title"> <%= entity.name %></h5>
           <p class="card-text"> <%= entity.amount %></p>
           <p class="card-text"><small class="text-muted">Created at <%= entity.created_at %>></small></p>
-          <% if cannot? :delete, entity %>
+          <% if can? :destroy, entity %>
           <%= button_to 'Delete', group_entity_path(@group, entity), class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %>
             <% end %>
+
         </div>
       </div>
     </div>

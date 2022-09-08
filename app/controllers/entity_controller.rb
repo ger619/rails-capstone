@@ -7,6 +7,7 @@ class EntityController < ApplicationController
   end
 
   def show
+    @group = Group.includes(:entities).all.order('created_at DESC')
     @entity = Entity.find(params[:id])
   end
 
@@ -16,7 +17,7 @@ class EntityController < ApplicationController
 
   def create
     @entity = Entity.new(entity_params)
-    @entity.user = current_user
+    @entity.user_id = current_user.id
 
     respond_to do |format|
       if @entity.save

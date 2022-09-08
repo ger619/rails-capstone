@@ -26,7 +26,7 @@
               </h5>
 
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            <% if can? :delete, g %>
+            <% if can? :destroy, g %>
             <%= button_to 'Delete' ,g,method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'  %>
             <% end %>
           </div>
