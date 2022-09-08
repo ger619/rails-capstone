@@ -1,8 +1,8 @@
 
 ![](https://img.shields.io/badge/Microverse-blueviolet)
-# Rails recipe App
+# Rails Banking App
 
->Rails recipe app is a Ruby on Rails application that keeps track of all your foods, recipes, ingredients, and inventories.
+>Rails Capstone App app is a Ruby on Rails application that keeps track of all your entity and group.
 
 ## Link 
 [Heroku_link](https://tomb-stone.herokuapp.com/users/sign_in)
