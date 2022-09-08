@@ -1,0 +1,44 @@
+<div class="d-grid justify-content-center">
+  <h3>New Group</h3>
+  <%= link_to 'Create', new_group_url, class: 'btn btn-primary btn-sm' %>
+  <br>
+  <h4>Total Amount:
+      <% sum = 0 %>
+        <% @entity.each do |e| %>
+          <% sum += e.amount %>
+        <% end %>
+      <%= sum %>
+  </h4>
+
+</div>
+<% @group.each do |g| %>
+  <div class="container d-flex justify-content-center">
+    <div class="card mb-2" style="max-width: 540px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <%= image_tag(g.icon, size: '96x96') %>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <%= link_to group_entity_index_path(g.id) do %>
+            <h5 class="card-title"> <%= g.name %></h5>
+            <% end %>
+            <% sum = 0 %>
+            <% @entity.each do |e| %>
+              <h5 class="card-title">
+
+                <% sum += e.amount %>
+                  <% end %>
+                <%= sum %>
+              </h5>
+
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <% if can? :destroy, g %>
+            <%= button_to 'Delete' ,g,method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'  %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

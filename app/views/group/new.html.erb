@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>New Group</h1>
+
+
+    <%= form_with  model: @group, url: group_index_url, method: :post, data: { turbo: false }, local: true do |f| %>
+        <div class="form-group">
+          <br>
+        <%= f.text_field :name, class: "form-control", placeholder: 'Name' %>
+        </div>
+        <div class="form-group">
+        <br>
+        <%= f.file_field :icon, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <br>
+        <%= f.submit "Create Group", class: "btn btn-primary" %>
+        </div>
+  <% end %>
+
+</div>

@@ -1,0 +1,27 @@
+<div class="d-grid justify-content-center">
+  <h3>Entity</h3>
+  <%= link_to 'Create', new_group_entity_url, class: 'btn btn-primary btn-sm' %>
+  <br>
+  <%= link_to 'Back' , group_index_path, class: 'btn btn-secondary btn-sm' %>
+  <br>
+
+</div>
+<% @entity.each do |entity| %>
+<div class="container d-flex justify-content-center">
+  <div class="card mb-2" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div>
+        <div class="card-body">
+          <h5 class="card-title"> <%= entity.name %></h5>
+          <p class="card-text"> <%= entity.amount %></p>
+          <p class="card-text"><small class="text-muted">Created at <%= entity.created_at %>></small></p>
+          <% if can? :destroy, entity %>
+          <%= button_to 'Delete', group_entity_path(@group, entity), class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
