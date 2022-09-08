@@ -2,6 +2,13 @@
   <h3>New Group</h3>
   <%= link_to 'Create', new_group_url, class: 'btn btn-primary btn-sm' %>
   <br>
+  <h4>Total Amount:
+      <% sum = 0 %>
+        <% @entity.each do |e| %>
+          <% sum += e.amount %>
+        <% end %>
+      <%= sum %>
+  </h4>
 
 </div>
 <% @group.each do |g| %>
